@@ -2,22 +2,24 @@ package com.dilson.micromail.dtos;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 
+@Data
 public class EmailDto {
     @NotBlank
-    private String name;
+    private String emailName;
 
     @NotBlank
     @Email
-    private String from;
+    private String emailFrom;
 
     @NotBlank
     @Email
-    private String to;
+    private String emailTo;
 
     @NotBlank
-    private String subject;
+    private String emailSubject;
 
     @NotBlank
-    private String message;
+    private String emailMessage;
 }

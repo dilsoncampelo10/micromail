@@ -21,22 +21,22 @@ public class Email {
     private UUID id;
 
     @Column(nullable = false)
-    private String name;
+    private String emailName;
     
     @Column(nullable = false)
-    private String from;
+    private String emailFrom;
 
     @Column(nullable = false)
-    private String to;
+    private String emailTo;
 
     @Column(nullable = false)
-    private String subject;
+    private String emailSubject;
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String message;
+    private String emailMessage;
 
     @CreationTimestamp
-    private LocalDateTime sendDate;
+    private LocalDateTime emailSendDate;
 
-    private Status status;
+    private Status emailStatus;
 }

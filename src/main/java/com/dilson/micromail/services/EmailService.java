@@ -21,14 +21,14 @@ public class EmailService {
     public Email sendMail(Email email) {
         try {
             SimpleMailMessage mail = new SimpleMailMessage();
-            mail.setFrom(email.getFrom());
-            mail.setTo(email.getTo());
-            mail.setSubject(email.getSubject());
-            mail.setText(email.getMessage());
+            mail.setFrom(email.getEmailFrom());
+            mail.setTo(email.getEmailTo());
+            mail.setSubject(email.getEmailSubject());
+            mail.setText(email.getEmailMessage());
             javaMailSender.send(mail);
-            email.setStatus(Status.SENT);
+            email.setEmailStatus(Status.SENT);
         } catch (MailException e) {
-            email.setStatus(Status.ERROR);
+            email.setEmailStatus(Status.ERROR);
         }
 
         return emailRepository.save(email);
