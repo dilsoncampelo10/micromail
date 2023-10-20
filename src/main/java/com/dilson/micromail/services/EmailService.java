@@ -1,5 +1,7 @@
 package com.dilson.micromail.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
@@ -18,6 +20,10 @@ public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
+    public List<Email> findAll(){
+        return this.emailRepository.findAll();
+    }
+
     public Email sendMail(Email email) {
         try {
             SimpleMailMessage mail = new SimpleMailMessage();
@@ -31,7 +37,7 @@ public class EmailService {
             email.setEmailStatus(Status.ERROR);
         }
 
-        return emailRepository.save(email);
+        return this.emailRepository.save(email);
 
     }
 }
